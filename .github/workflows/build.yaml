@@ -10,7 +10,8 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     env:
-      solution: "**/*.sln"
+      # solution: "*.sln"
+      buildConfiguration: "Release"
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET
@@ -19,10 +20,10 @@ jobs:
           dotnet-version: 8.0.x
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: ${{ env.solution }}
+        # working-directory: ${{ env.solution }}
       - name: Build
         run: dotnet build --no-restore
-        working-directory: ${{ env.solution }}
+        # working-directory: ${{ env.solution }}
       - name: Test
         run: dotnet test
         working-directory: ./
