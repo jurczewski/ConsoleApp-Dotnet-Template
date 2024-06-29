@@ -1,4 +1,8 @@
-# 📝 DotnetEmptyTemplate [![Build [CI]](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml)
+# 📝 DotnetEmptyTemplate
+
+[![Build [CI]](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml)[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jurczewski)
 
 A minimal .NET 8 template
 
