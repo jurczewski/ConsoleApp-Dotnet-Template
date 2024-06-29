@@ -1,9 +1,9 @@
 using System.Reflection;
-using Project.Infrastructure;
 using Figgle;
 using Microsoft.Extensions.Configuration;
+using ProjectName.Infrastructure;
 
-namespace Project;
+namespace ProjectName;
 
 internal abstract class Program
 {

@@ -2,6 +2,11 @@
 
 A minimal .NET 8 template
 
+## How to setup?
+
+1. Create a new repository using this template
+2. Replace "ProjectName" with your project name
+
 ## ⚗️ Features
 
 - _Serilog_ logger

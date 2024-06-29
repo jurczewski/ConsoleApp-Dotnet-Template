@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Project.UnitTests;
+namespace ProjectName.UnitTests;
 
 public sealed class Test1
 {

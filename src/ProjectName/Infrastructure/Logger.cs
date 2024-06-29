@@ -2,7 +2,7 @@
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
-namespace Project.Infrastructure;
+namespace ProjectName.Infrastructure;
 
 public static class Logger
 {

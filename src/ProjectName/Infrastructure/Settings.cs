@@ -1,4 +1,4 @@
-﻿namespace Project.Infrastructure;
+﻿namespace ProjectName.Infrastructure;
 
 public sealed class Settings
 {
