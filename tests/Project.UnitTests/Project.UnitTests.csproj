@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Boocars.Core\Boocars.Core.csproj" />
+    <ProjectReference Include="..\..\src\Project\Project.csproj" />
   </ItemGroup>
 
 
