@@ -1,0 +1,41 @@
+trigger:
+  - master
+  - develop
+  - feature/*
+  - bugfix/*
+
+pr:
+  - master
+  - develop
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  solution: "**/*.sln"
+  buildConfiguration: "Release"
+
+steps:
+  - task: UseDotNet@2
+    displayName: "Use .NET Core sdk 8.0.x"
+    inputs:
+      version: "8.0.x"
+
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: "$(Solution)"
+
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: "$(Solution)"
+      arguments: "--configuration $(BuildConfiguration)"
+
+  - task: DotNetCoreCLI@2
+    displayName: Test
+    inputs:
+      command: test
+      projects: "**/*tests/**/*.csproj"
+      arguments: "--configuration $(BuildConfiguration)"
