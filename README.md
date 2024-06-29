@@ -1,8 +1,8 @@
-# 📝 DotnetEmptyTemplate
+# 📝 DotnetEmptyTemplate [![Build [CI]](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml)
 
 A minimal .NET 8 template
 
-## How to setup?
+## 🔧 How to setup?
 
 1. Create a new repository using this template
 2. Replace "ProjectName" with your project name
