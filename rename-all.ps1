@@ -1,4 +1,4 @@
-# Function to replace "HousingScraper" in file content and filenames with the given phrase
+# Function to replace "ProjectName" in file and directory names and their content with the given phrase
 function Replace-FilenameAndContent {
     param (
         [string]$NewPhrase
@@ -7,14 +7,15 @@ function Replace-FilenameAndContent {
     # Get the current directory
     $Directory = Get-Location
 
-    # Get all files in the current directory and subdirectories
-    $files = Get-ChildItem -Path $Directory -File -Recurse
+    # Get all files and directories in the current directory and subdirectories
+    $items = Get-ChildItem -Path $Directory -Recurse
 
+    # First, replace "ProjectName" with the new phrase in file content
+    $files = $items | Where-Object { -not $_.PSIsContainer }
     foreach ($file in $files) {
-        # Replace "HousingScraper" with the new phrase in the file content
         try {
             $content = Get-Content -Path $file.FullName -ErrorAction Stop
-            $newContent = $content -replace "HousingScraper", $NewPhrase
+            $newContent = $content -replace "ProjectName", $NewPhrase
             Set-Content -Path $file.FullName -Value $newContent
             Write-Host "Replaced content in '$($file.Name)'"
         }
@@ -23,25 +24,31 @@ function Replace-FilenameAndContent {
         }
     }
 
-    # Renaming files after content replacement
+    # Then, rename directories and files
+    $directories = $items | Where-Object { $_.PSIsContainer } | Sort-Object -Property FullName -Descending
+    foreach ($directory in $directories) {
+        if ($directory.Name -like "*ProjectName*") {
+            $newDirName = $directory.Name -replace "ProjectName", $NewPhrase
+            $newDirPath = Join-Path -Path $directory.Parent.FullName -ChildPath $newDirName
+
+            Rename-Item -Path $directory.FullName -NewName $newDirPath
+            Write-Host "Renamed directory '$($directory.FullName)' to '$($newDirPath)'"
+        }
+    }
+
     foreach ($file in $files) {
-        # Check if the filename contains "HousingScraper"
-        if ($file.Name -like "*HousingScraper*") {
-            # Replace "HousingScraper" with the new phrase in the filename
-            $newName = $file.Name -replace "HousingScraper", $NewPhrase
+        if ($file.Name -like "*ProjectName*") {
+            $newFileName = $file.Name -replace "ProjectName", $NewPhrase
+            $newFilePath = Join-Path -Path $file.DirectoryName -ChildPath $newFileName
 
-            # Get the full path of the new filename
-            $newPath = Join-Path -Path $file.DirectoryName -ChildPath $newName
-
-            # Rename the file
-            Rename-Item -Path $file.FullName -NewName $newPath
-            Write-Host "Renamed '$($file.Name)' to '$($newName)'"
+            Rename-Item -Path $file.FullName -NewName $newFilePath
+            Write-Host "Renamed file '$($file.FullName)' to '$($newFilePath)'"
         }
     }
 }
 
 # Prompt the user for the new phrase
-$newPhrase = Read-Host "Enter the new phrase to replace 'HousingScraper'"
+$newPhrase = Read-Host "Enter the new phrase to replace 'ProjectName'"
 
-# Call the function to replace filenames and file content
+# Call the function to replace filenames, directory names, and file content
 Replace-FilenameAndContent -NewPhrase $newPhrase
