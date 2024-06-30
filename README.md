@@ -10,6 +10,7 @@ A minimal .NET 8 template
 
 1. Create a new repository using this template
 2. Replace `ProjectName` with your project name
+    - If your are on Windows, use [rename-all.ps1](./rename-all.ps1) Powershell Script
 
 ## ⚗️ Features
 
