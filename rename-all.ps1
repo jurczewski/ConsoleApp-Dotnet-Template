@@ -1,4 +1,4 @@
-function Replace-FilenameAndContent {
+function Rename-FilenamesAndDirectoryAndContent {
     param (
         [string]$NewPhrase
     )
