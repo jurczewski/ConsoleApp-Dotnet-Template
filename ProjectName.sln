@@ -11,6 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{849E9F12-2C2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{355B3F4B-4DE2-4EC6-97FE-4FD24EF0EFC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{9B064AE3-0511-4458-A877-90494992B11B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Packages.props = Directory.Packages.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ci", "ci", "{D4D7BB93-C7A0-4E2D-AE35-CE2A135D29E7}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yaml = .github\workflows\build.yaml
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +47,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5A86EB7E-1899-45D1-8C6C-B76757E183E0} = {849E9F12-2C2B-453E-95E8-C958117D35E3}
 		{2771EC5D-CA33-458F-9612-7923E099A34A} = {355B3F4B-4DE2-4EC6-97FE-4FD24EF0EFC1}
+		{D4D7BB93-C7A0-4E2D-AE35-CE2A135D29E7} = {9B064AE3-0511-4458-A877-90494992B11B}
 	EndGlobalSection
 EndGlobal
