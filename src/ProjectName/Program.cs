@@ -1,5 +1,5 @@
 using System.Reflection;
-using Figgle;
+using Figgle.Fonts;
 using Microsoft.Extensions.Configuration;
 using ProjectName.Infrastructure;
 
