@@ -7,9 +7,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AutoFixture" Version="4.18.1" />
+    <PackageVersion Include="AwesomeAssertions" Version="9.1.0" />
     <PackageVersion Include="Figgle" Version="0.6.5" />
     <PackageVersion Include="Figgle.Fonts" Version="0.6.5" />
-    <PackageVersion Include="FluentAssertions" Version="6.12.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="xunit" Version="2.9.3" />
