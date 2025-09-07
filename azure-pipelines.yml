@@ -9,7 +9,7 @@ pr:
   - develop
 
 pool:
-  vmImage: "windows-latest"
+  vmImage: "ubuntu-latest"
 
 variables:
   solution: "**/*.sln"
@@ -31,7 +31,7 @@ steps:
     displayName: Build
     inputs:
       projects: "$(Solution)"
-      arguments: "--configuration $(BuildConfiguration)"
+      arguments: "--configuration $(BuildConfiguration) -p:TreatWarningsAsErrors=true"
 
   - task: DotNetCoreCLI@2
     displayName: Test
