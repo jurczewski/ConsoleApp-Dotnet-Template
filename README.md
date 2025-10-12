@@ -1,6 +1,8 @@
 # 📝 ConsoleApp-Dotnet-Template
 
-[![Build [CI]](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml)[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build and test [CI]](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml/badge.svg)](https://github.com/jurczewski/DotnetEmptyTemplate/actions/workflows/build.yaml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Linkedin](https://img.shields.io/badge/Linkedin-0882bd?logo=linkedin)](https://www.linkedin.com/in/jurczewski/)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jurczewski)
 
