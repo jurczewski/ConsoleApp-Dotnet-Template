@@ -6,7 +6,7 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jurczewski)
 
-A minimal .NET 8 console application template.
+A minimal .NET 10 console application template.
 
 ## 🔧 How to setup?
 

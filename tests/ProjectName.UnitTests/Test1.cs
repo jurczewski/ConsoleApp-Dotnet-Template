@@ -1,4 +1,4 @@
-﻿namespace ProjectName.UnitTests;
+namespace ProjectName.UnitTests;
 
 public sealed class Test1
 {

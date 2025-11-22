@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
