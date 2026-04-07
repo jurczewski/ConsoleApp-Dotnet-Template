@@ -6,22 +6,19 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jurczewski)
 
-A minimal .NET 10 console application template.
+Production-ready .NET 10 console app starter - skip the boilerplate, start with a solid foundation.
 
 ## 🔧 How to setup?
 
 1. Create a new repository using this template
 2. Replace `ProjectName` with your project name
-    - If you are on Windows, use [rename-all.ps1](./rename-all.ps1) Powershell Script
+    - On Windows run [rename-all.ps1](./rename-all.ps1) - renames everything in one shot
 
 ## ⚗️ Features
 
-- _Serilog_ logger
-- _Figgle_ banner at startup
-- `appsettings.json` with Setting __IOption__ pattern
-- CI - _Github_ & _Azure DevOps Pipeline_ files
-- example project to run
-- example test project
-- central package manager
-- .editorconfig
-- .gitignore
+- **Serilog** - structured console logging with ANSI color theme, ready to go
+- **Figgle** - ASCII banner on startup (Doom font)
+- **appsettings.json** - typed `Settings` class bound via `IOptions` pattern
+- **CI** - GitHub Actions & Azure Pipelines, daily NuGet vulnerability scan, Dependabot
+- **xUnit v3 + AwesomeAssertions + AutoFixture + Moq** - full test stack wired up
+- **Central Package Management** - all NuGet versions in `Directory.Packages.props`
