@@ -3,8 +3,7 @@ function Rename-FilenamesAndDirectoryAndContent {
         [string]$NewPhrase
     )
 
-    # Get the current directory
-    $Directory = Get-Location
+    $Directory = Split-Path -Parent $PSScriptRoot
 
     # Get all files and directories in the current directory and subdirectories
     $items = Get-ChildItem -Path $Directory -Recurse | Where-Object {
@@ -27,28 +26,26 @@ function Rename-FilenamesAndDirectoryAndContent {
         }
     }
 
-    # Get all directories in the current directory and subdirectories (deepest first)
-    $directories = Get-ChildItem -Path $Directory -Recurse | Where-Object {
-        $_.PSIsContainer
-    } | Sort-Object { $_.FullName.Length } -Descending
-
-    # Rename directories
-    foreach ($dir in $directories) {
-        if ($dir.Name -like "*ProjectName*") {
-            $newName = $dir.Name -replace "ProjectName", $NewPhrase
-            $newPath = Join-Path -Path $dir.Parent.FullName -ChildPath $newName
-
-            Rename-Item -Path $dir.FullName -NewName $newName -Force
-            Write-Host "Renamed directory '$($dir.FullName)' to '$($newPath)'"
-        }
-    }
-
-    # Rename files containing "ProjectName"
+    # Rename files containing "ProjectName" (before directories, so paths are still valid)
     foreach ($file in $items) {
         if ($file.Name -like "*ProjectName*") {
             $newName = $file.Name -replace "ProjectName", $NewPhrase
             Rename-Item -Path $file.FullName -NewName $newName -Force
             Write-Host "Renamed file '$($file.FullName)' to '$newName'"
+        }
+    }
+
+    # Rename directories containing "ProjectName" (deepest first)
+    $directories = Get-ChildItem -Path $Directory -Recurse | Where-Object {
+        $_.PSIsContainer
+    } | Sort-Object { $_.FullName.Length } -Descending
+
+    foreach ($dir in $directories) {
+        if ($dir.Name -like "*ProjectName*") {
+            $newName = $dir.Name -replace "ProjectName", $NewPhrase
+            $newPath = Join-Path -Path $dir.Parent.FullName -ChildPath $newName
+            Rename-Item -Path $dir.FullName -NewName $newName -Force
+            Write-Host "Renamed directory '$($dir.FullName)' to '$($newPath)'"
         }
     }
 
