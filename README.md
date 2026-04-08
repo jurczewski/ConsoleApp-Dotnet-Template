@@ -22,3 +22,27 @@ Production-ready .NET 10 console app starter - skip the boilerplate, start with 
 - **CI** - GitHub Actions & Azure Pipelines, daily NuGet vulnerability scan, Dependabot
 - **xUnit v3 + AwesomeAssertions + AutoFixture + Moq** - full test stack wired up
 - **Central Package Management** - all NuGet versions in `Directory.Packages.props`
+
+## 🗂️ Structure
+
+```bash
+├── src/ProjectName/
+│   ├── Infrastructure/
+│   │   ├── Logger.cs          # Serilog setup
+│   │   └── Settings.cs        # typed config class
+│   ├── appsettings.json
+│   └── Program.cs
+├── tests/ProjectName.UnitTests/
+│   └── Test1.cs
+├── .github/workflows/         # GitHub Actions
+│   ├── build.yaml
+│   └── nuget-vulnerability-scan.yml
+├── .azuredevops/              # Azure DevOps Pipelines
+│   ├── azure-pipelines.yml
+│   ├── nuget-vulnerability-scan.yml
+│   └── renovate.yml
+├── scripts/
+│   ├── rename-all.ps1         # Windows rename helper
+│   └── rename-all.sh          # Linux/macOS rename helper
+└── Directory.Packages.props   # central NuGet versions
+```
