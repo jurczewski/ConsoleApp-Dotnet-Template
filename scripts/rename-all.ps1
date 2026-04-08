@@ -27,12 +27,10 @@ function Rename-FilenamesAndDirectoryAndContent {
         }
     }
 
-    # Get all directories in the current directory and subdirectories
+    # Get all directories in the current directory and subdirectories (deepest first)
     $directories = Get-ChildItem -Path $Directory -Recurse | Where-Object {
-        $_.PSIsContainer -and
-        $_.Name -notlike "README.md" -and
-        $_.Name -notlike "rename-all.ps1"
-    }
+        $_.PSIsContainer
+    } | Sort-Object { $_.FullName.Length } -Descending
 
     # Rename directories
     foreach ($dir in $directories) {
@@ -45,7 +43,14 @@ function Rename-FilenamesAndDirectoryAndContent {
         }
     }
 
-    # Rename files (already handled above in $items)
+    # Rename files containing "ProjectName"
+    foreach ($file in $items) {
+        if ($file.Name -like "*ProjectName*") {
+            $newName = $file.Name -replace "ProjectName", $NewPhrase
+            Rename-Item -Path $file.FullName -NewName $newName -Force
+            Write-Host "Renamed file '$($file.FullName)' to '$newName'"
+        }
+    }
 
     # Notify user about completion
     Write-Host "Rename operation completed."
@@ -53,6 +58,11 @@ function Rename-FilenamesAndDirectoryAndContent {
 
 # Prompt the user for the new phrase
 $newPhrase = Read-Host "Enter the new phrase to replace 'ProjectName'"
+
+if ([string]::IsNullOrWhiteSpace($newPhrase)) {
+    Write-Error "Error: phrase cannot be empty."
+    exit 1
+}
 
 # Call the function to replace filenames, directory names, and file content
 Rename-FilenamesAndDirectoryAndContent -NewPhrase $newPhrase
