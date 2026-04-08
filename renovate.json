@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "mergeConfidence:all-badges"
+  ],
+  "enabledManagers": [
+    "nuget"
+  ],
+  "schedule": [
+    "at any time"
+  ],
+  "prConcurrentLimit": 2,
+  "prHourlyLimit": 0,
+  "rebaseWhen": "behind-base-branch",
+  // "azureWorkItemId": 111, # TODO: change to a real work item ID
+  "automerge": true,
+  "platformAutomerge": true,
+  "labels": [
+    "dependencies"
+  ],
+  "prBodyColumns": [
+    "Package",
+    "Change",
+    "Update",
+    "Age",
+    "Adoption",
+    "Confidence"
+  ],
+  "packageRules": [
+    {
+      "description": "Group all NuGet updates into a single monthly PR",
+      "matchManagers": [
+        "nuget"
+      ],
+      "groupName": "NuGet packages",
+      "groupSlug": "nuget-all"
+    }
+  ]
+}
