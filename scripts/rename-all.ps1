@@ -10,7 +10,8 @@ function Rename-FilenamesAndDirectoryAndContent {
     $items = Get-ChildItem -Path $Directory -Recurse | Where-Object {
         -not $_.PSIsContainer -and
         $_.Name -notlike "README.md" -and
-        $_.Name -notlike "rename-all.ps1"
+        $_.Name -notlike "rename-all.ps1" -and
+        $_.Name -notlike "rename-all.sh"
     }
 
     # Replace "ProjectName" with the new phrase in file content
