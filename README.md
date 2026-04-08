@@ -11,8 +11,9 @@ Production-ready .NET 10 console app starter - skip the boilerplate, start with 
 ## 🔧 How to setup?
 
 1. Create a new repository using this template
-2. Replace `ProjectName` with your project name
-    - On Windows run [rename-all.ps1](./scripts/rename-all.ps1) - renames everything in one shot
+2. Replace `ProjectName` with your project name - renames everything in one shot
+    - On Windows run [rename-all.ps1](./scripts/rename-all.ps1)
+    - On Linux/macOS run [rename-all.sh](./scripts/rename-all.sh)
 
 ## ⚗️ Features
 
