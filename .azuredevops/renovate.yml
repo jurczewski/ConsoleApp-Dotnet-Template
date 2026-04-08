@@ -1,0 +1,32 @@
+# Renovate self-hosted — runs once a month and opens ONE PR with all NuGet bumps.
+
+trigger: none
+
+schedules:
+  - cron: "0 8 1 * *"    # 08:00 UTC on the 1st of every month
+    displayName: Monthly Renovate run
+    branches:
+      include:
+        - master
+    always: true           # run even when there are no source changes
+
+variables:
+  - group: security # renovate token stored in Azure DevOps as a secret variable group named "security"
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    displayName: Use Node.js 24
+    inputs:
+      versionSpec: "24.x"
+
+  - script: npx --yes renovate@latest "$(System.TeamProject)/$(Build.Repository.Name)"
+    displayName: Run Renovate
+    env:
+      RENOVATE_PLATFORM: azure
+      RENOVATE_ENDPOINT: $(System.TeamFoundationCollectionUri)
+      RENOVATE_TOKEN: $(RenovatePAT)
+      RENOVATE_ONBOARDING: false
+      LOG_LEVEL: info
