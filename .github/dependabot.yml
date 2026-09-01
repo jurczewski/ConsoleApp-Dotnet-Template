@@ -1,27 +1,29 @@
-version: 2
-updates:
-  - package-ecosystem: "nuget"
-    directory: "/"
-    schedule:
-      interval: "monthly"
-      day: "monday"
-      time: "12:00"
-      timezone: "Europe/Warsaw"
-    open-pull-requests-limit: 1
-    groups:
-      nuget-all:
-        patterns:
-          - "*"
+# Dependabot configuration file
+# Uncomment the following lines to enable Dependabot updates
+# version: 2
+# updates:
+#   - package-ecosystem: "nuget"
+#     directory: "/"
+#     schedule:
+#       interval: "monthly"
+#       day: "monday"
+#       time: "12:00"
+#       timezone: "Europe/Warsaw"
+#     open-pull-requests-limit: 1
+#     groups:
+#       nuget-all:
+#         patterns:
+#           - "*"
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "monthly"
-      day: "monday"
-      time: "12:00"
-      timezone: "Europe/Warsaw"
-    open-pull-requests-limit: 1
-    groups:
-      github-actions-all:
-        patterns:
-          - "*"
+#   - package-ecosystem: "github-actions"
+#     directory: "/"
+#     schedule:
+#       interval: "monthly"
+#       day: "monday"
+#       time: "12:00"
+#       timezone: "Europe/Warsaw"
+#     open-pull-requests-limit: 1
+#     groups:
+#       github-actions-all:
+#         patterns:
+#           - "*"
